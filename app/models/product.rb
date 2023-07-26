@@ -11,4 +11,9 @@ class Product < ActiveRecord::Base
             puts "Review for #{self.name} by #{user.id}: #{star_rating}. #{comment}"
         end
     end
+
+    def average_rating
+        average = self.reviews.sum / self.reviews.count
+        average.to_f
+    end
 end
